@@ -1,0 +1,23 @@
+import { Col, Container, Row } from "react-bootstrap";
+import Panel from "./Panel.jsx";
+import data from "../../data/gallery.json";
+
+export default function List() {
+  return (
+    <section>
+      <Container id="gallery">
+        <Row>
+          <Col className="text-center">
+            <h2>My Collection</h2>
+          </Col>
+        </Row>
+
+        <Row className="justify-content-center">
+          {data.map((element) =>
+            element ? <Panel data={element} /> : <p>Loading...</p>
+          )}
+        </Row>
+      </Container>
+    </section>
+  );
+}
